@@ -1,0 +1,63 @@
+#title {
+    text-align: center;
+    margin: 50px auto;
+}
+
+#title span {
+    color: navy;
+    text-decoration: underline;
+}
+.title span {
+    color: navy;
+    text-decoration: underline;
+}
+
+#loginform {
+    width: 60%;
+    margin: 10px auto;
+    margin-top: 50px;
+}
+
+#forms {
+    display: flex;
+    width: 60%;
+    margin: 10px auto;
+    justify-content: space-between;
+}
+
+#notes {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 80%;
+    margin: 10px auto;
+
+}
+
+#notes div {
+    margin: 15px;
+    max-width: 300px;
+    padding: 10px;
+    border: 2px solid navy;
+    height: 400px;
+
+}
+
+
+#logout {
+    text-align: center;
+    display: block;
+    
+}
+
+
+button {
+    background-color: navy;
+}
+
+#fkebtn {
+    background-color: navy;
+}
+body {
+    background-color: rgba(221, 216, 211, 0.438);
+}

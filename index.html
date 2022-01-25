@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Note Practice</title>
+
+    <!-- VUE SCRIPT TAG -->
+    <!-- DEV -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <!-- PROD -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2"></script> -->
+    <!-- MILLIGRAM CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.css">
+    <!-- OUR CUSTOM CODE -->
+    <script src="app.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="app">
+        <div id="nologin" v-if="!loggedin">
+            <div id="loginform">
+                <h1 id="title">src<span>Nts</span></h1>
+                <fieldset>
+                    <h2>Please sign in!</h2>
+                    <form v-on:submit.prevent="handleLogin">
+                        <fieldset>
+                            <legend>LOGIN</legend>
+                            <input type="text" placeholder="username" v-model="loginUN">
+                            <input type="password" placeholder="password" v-model="loginPW">
+                            <input type="submit" value="login" id="fkebtn">
+                        </fieldset>
+                    </form>
+                    <h2>Or if you do not have an account, please sign up!</h2>
+                    <form v-on:submit.prevent="handleSignup">
+                        <fieldset>
+                            <legend>CREATE USER</legend>
+                            <input type="text" placeholder="username" v-model="createUN">
+                            <input type="password" placeholder="password" v-model="createPW">
+                            <input type="submit" value="create user" id="fkebtn">
+                        </fieldset>
+                    </form>
+                </fieldset>
+            </div>
+        </div>
+        <div id="login" v-if="loggedin">
+            <h1 id="title">src<span>Nts</span></h1>
+            <div id="forms">
+
+                <article>
+                    <h1 class="title">New <span>Note</span></h1>
+                    <input type="text" v-model="newNote">
+                    <button v-on:click.prevent="createNote">Create Note</button>
+                </article>
+                <article>
+                    <h1 class="title">Update <span>Note</span></h1>
+                    <input type="text" v-model="updateNote">
+                    <button v-on:click.prevent="editNote" v-bind:id="editID">Update Note</button>
+                </article>
+
+            </div>
+            <div id="notes">
+                <div class="note" v-for="note of notes">
+                    <h1>{{note.message}}</h1>
+                    <article class="bottom">
+                        <button v-bind:id="note.id" v-on:click="deleteNote">delete</button>
+                        <button v-bind:id="note.id" v-on:click="editSelect">update</button>
+                    </article>
+
+                </div>
+            </div>
+
+
+            <button v-on:click="handleLogout" id="logout">Logout</button>
+        </div>
+
+    </div>
+</body>
+
+</html>
